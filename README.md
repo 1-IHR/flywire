@@ -100,6 +100,9 @@ BANC x FAFB x MCNS was selected as the best result by the scoring function.
 ## Final result
 
 Best triplet: **BANC x FAFB x MCNS** 
+
 Matched neurons: **32** 
+
 Induced directed edges: **55** 
+
 Isomorphism violations: **0**  
