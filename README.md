@@ -1,4 +1,4 @@
-# FlyWire Qualification Challenge Submission
+# Qualification Challenge Submission
 
 ## Objective
 
