@@ -1,3 +1,2 @@
 # flywire
-Qualification Challenge
-Ibtisam Haseeb
+Qualification Challenge (Ibtisam Haseeb)
