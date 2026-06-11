@@ -75,7 +75,7 @@ Edges sharing a signature across all three graphs in a triplet seed the candidat
 ## Reproducing
 
 ```bash
-pip install networkx pandas
+pip install networkx==3.6.1 pandas==3.0.3
 python pipeline.py
 ```
 
