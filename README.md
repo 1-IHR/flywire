@@ -63,11 +63,9 @@ Edges sharing a signature across all three graphs in a triplet seed the candidat
 
 ```
 .
-├── pipeline.py          full search across all 10 dataset triplets
+├── pipeline.py          code, full search across all 10 dataset triplets
 ├── network.csv          45 matched neuron IDs (columns: BANC, FAFB, MCNS)
 ├── science.md           biological investigation of the circuit in FAFB
-├── network_graph.png    circuit as a directed network graph (FlyWire Codex)
-└── mesh_3d.png          3D skeleton rendering of all 45 neurons (Neuroglancer)
 ```
 
 ---
