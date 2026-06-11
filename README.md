@@ -41,11 +41,11 @@ Edges sharing a signature across all three graphs in a triplet seed the candidat
 
 ## Heuristics
 
-1. **`MAX_EDGES_PER_SIG = 8` (bucket size).** On the winning triplet, k=8 yields a compatibility graph density of 0.214 and a maximum clique of 61 edge triples (45 nodes). Raising to k=12 drops density to 0.125 and the clique to 29; k=9 and k=10 degraded similarly. Lower-ranked candidates dilute the dense core of the compatibility graph rather than extending it, so a tighter bucket consistently outperforms a looser one. Confirmed optimal by testing k in {8, 9, 10, 12}.
+1. **`MAX_EDGES_PER_SIG = 8` (bucket size).** On the winning triplet, k=8 yields a compatibility graph density of 0.214 and a maximum clique of 61 edge triples (45 nodes). Raising to k=12 drops density to 0.125 and the clique to 29; k=9 and k=10 degraded similarly. Lower-ranked candidates dilute the dense core of the compatibility graph rather than extending it, so a tighter bucket consistently outperforms a looser one. Confirmed optimal by testing k in {8, 9, 10, 11, 12}.
 
-2. **`MAX_EDGE_TRIPLES = 10,000` (candidate cap).** At this cap the compatibility graph carries approximately 10.7M edges (around 4 GB RAM). At 50,000 triples a MemoryError was raised. At 15,000, density fell to 0.144 and the best clique shrank to 28, meaning the quality degradation preceded the memory ceiling. The cap is therefore binding on clique quality before it is binding on hardware.
-
-3. **`KCORE_K = 2` (pruning threshold).** After pruning, 9,620 of 10,000 nodes survived on the winning triplet. The compatibility graph is genuinely dense throughout and pruning removes very little, so the threshold imposes no meaningful quality trade-off while reducing clique search time.
+2. **`MAX_EDGE_TRIPLES = 10,000` (candidate cap).** At this cap the compatibility graph carries approximately 10.7M edges (around 4 GB RAM). At 15,000 triples, compatibility graph density fell to 0.144 and the best clique shrank to 28. Higher candidate counts dilute the dense core of the compatibility graph rather than extending it, so 10,000 was retained as optimal.
+   
+4. **`KCORE_K = 2` (pruning threshold).** After pruning, 9,620 of 10,000 nodes survived on the winning triplet. The compatibility graph is genuinely dense throughout and pruning removes very little, so the threshold imposes no meaningful quality trade-off while reducing clique search time.
 
 ---
 
