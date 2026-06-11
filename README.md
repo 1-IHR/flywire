@@ -7,10 +7,9 @@
 ## Result
 
 > **45 neurons · 84 directed edges · BANC × FAFB × MCNS · score 46.86**
-> Score = N × (1 + edge density) on the largest weakly connected component. Verified by exhaustive pairwise isomorphism check: 2,025 ordered pairs, 0 violations.
+> Score ranked across triplets by N × (1 + edge density) to jointly reward subgraph size and connectivity; the winning triplet also has the highest raw N. Verified by exhaustive pairwise isomorphism check: 2,025 ordered pairs, 0 violations.
 
-In FAFB, the recovered circuit annotates as the optic lobe **Elementary Motion Detector**: all four directional subtypes of T4 (ON) and T5 (OFF) are present, with CT1 as the sole GABAergic hub. The same topology appears in MCNS as optic lobe neurons and in BANC as the mushroom body KC-APL system, reflecting a shared architectural motif (a wide-field inhibitory hub organising a population of parallel neurons) independently instantiated in two distinct brain regions.
-
+In FAFB, the 45 neurons annotate as the optic lobe Elementary Motion Detector (T4/T5/Tm/Mi1/CT1; Schlegel et al. 2024). The same topology maps to optic lobe neurons in MCNS and to mushroom body neurons (Kenyon cells, APL, MBON30) in BANC.
 ---
 
 ## Key Observations
