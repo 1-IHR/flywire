@@ -9,7 +9,7 @@
 > **45 neurons · 84 directed edges · BANC × FAFB × MCNS · score 46.86**
 > Score ranked across triplets by N × (1 + edge density) to jointly reward subgraph size and connectivity; the winning triplet also has the highest raw N. Verified by exhaustive pairwise isomorphism check: 2,025 ordered pairs, 0 violations.
 
-In FAFB, the 45 neurons annotate as the optic lobe Elementary Motion Detector (T4/T5/Tm/Mi1/CT1; Schlegel et al. 2024). The same topology maps to optic lobe neurons in MCNS and to mushroom body neurons (Kenyon cells, APL, MBON30) in BANC.
+> In FAFB, the 45 neurons annotate as the optic lobe Elementary Motion Detector (T4/T5/Tm/Mi1/CT1; Schlegel et al. 2024). The same topology maps to optic lobe neurons in MCNS and to mushroom body neurons (Kenyon cells, APL, MBON30) in BANC.
 ---
 
 ## Key Observations
