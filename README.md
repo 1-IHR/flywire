@@ -90,3 +90,14 @@ mcns_0.9_edge_list.csv
 ```
 
 Runtime is approximately 10 hours on a machine with 20 GB available RAM (one-hour search budget per triplet across all 10 combinations). The best result is written to `network.csv` on completion.
+
+
+## Verification
+
+`verify.py` checks the result in `network.csv` independently of the pipeline. For every ordered pair (i, j) across all 45 rows, it queries whether the directed edge i→j is present in each of the three graphs and checks that the answer is identical across BANC, FAFB, and MCNS. This covers all N² = 2,025 directed pairs. Any mismatch is printed as a violation.
+
+```bash
+python verify.py
+# VERIFIED: all 2025 directed pairs are isomorphic
+```
+
