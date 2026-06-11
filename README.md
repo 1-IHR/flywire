@@ -1,108 +1,93 @@
-# Qualification Challenge Submission
+# FlyWire Summer Internship: Qualification Challenge
 
-## Objective
+**Ibtisam Haseeb** ·  ibtisam.haseeb@tamu.edu
 
-Find the largest directed induced subgraph shared across at least 3 of the 5 connectome datasets, where "shared" means the subgraphs are mutually isomorphic: same nodes, same directed edges, across all three datasets simultaneously.
+---
+
+## Result
+
+> **45 neurons · 84 directed edges · BANC × FAFB × MCNS · score 46.86**
+> Score = N × (1 + edge density) on the largest weakly connected component. Verified by exhaustive pairwise isomorphism check: 2,025 ordered pairs, 0 violations.
+
+In FAFB, the recovered circuit annotates as the optic lobe **Elementary Motion Detector**: all four directional subtypes of T4 (ON) and T5 (OFF) are present, with CT1 as the sole GABAergic hub. The same topology appears in MCNS as optic lobe neurons and in BANC as the mushroom body KC-APL system, reflecting a shared architectural motif (a wide-field inhibitory hub organising a population of parallel neurons) independently instantiated in two distinct brain regions.
+
+---
+
+## Key Observations
+
+The five graphs span a 10x density range (FAFB ~27 edges per node, MANC ~224). Node-level degree signatures applied directly produced either zero cross-dataset matches (threshold too strict) or compatibility graphs with density ~0.97 (threshold too coarse, making clique search intractable). Integer node IDs carry no shared identity across datasets, so the problem is purely structural with no label information to exploit.
+
+---
 
 ## Approach
 
-This is the Maximum Common Induced Subgraph (MCIS) problem, which is NP-hard. For graphs with 100K+ nodes, brute-force search over node mappings is infeasible.
+MCIS is NP-hard, so rather than searching exhaustively, the problem is reduced to maximum clique on a bounded compatibility graph, then verified exactly.
 
-Each dataset is provided as a CSV edge list where each row is a directed synapse: the left integer is the presynaptic neuron ID and the right integer is the postsynaptic neuron ID. The algorithm operates entirely on these raw integer IDs and the connectivity structure they define. No biological labels or metadata are used at any stage.
+**Edge signatures.** The density gap rules out node signatures. Constraining both endpoints of a directed edge jointly, via a log2-binned 4-tuple of in/out degrees, yields signatures substantially more selective than single-node fingerprints, since both source and target degree profiles must match simultaneously:
 
-Node-level filtering fails here because connectome density varies widely across datasets (average degree ranges from \~27 in FAFB to \~224 in MANC), so any node signature either produces zero cross-dataset matches or a near-complete compatibility graph that makes clique search intractable.
+```
+sig(u->v) = ( floor(log2 in_deg(u)),  floor(log2 out_deg(u)),
+              floor(log2 in_deg(v)),  floor(log2 out_deg(v)) )   values capped at 6
+```
 
-The solution uses an edge-first approach that reduces MCIS to Maximum Clique:
+Edges sharing a signature across all three graphs in a triplet seed the candidate pool. Within each bucket, the top 8 edges per graph by combined endpoint degree are kept, preferring hub-centred neighbourhoods that empirically produce denser compatibility graphs and larger cliques.
 
-**Stage 1: Edge signatures.** For each directed edge u→v, compute a 4-tuple signature: (log2-binned in-degree of u, log2-binned out-degree of u, log2-binned in-degree of v, log2-binned out-degree of v). Log-binning on a scale of 0-6 bridges the density gap between datasets while still being discriminative. Constraining both endpoints jointly makes edge signatures \~|G| times more selective than node signatures.
+**Compatibility graph.** A candidate edge triple is a tuple of three directed edges, one from each graph, sharing the same signature. Two edge triples involve four node positions in total (two sources and two targets). They are connected in the compatibility graph iff those four positions satisfy injectivity (equality relationships between all four cross-position pairs are consistent across all three graphs) and edge consistency (all eight directed cross-edges between the four positions, both directions for each of the four pairs, are present or absent identically across all three graphs). A clique in this undirected graph corresponds to a valid common induced subgraph by construction: every pair of edge triples is mutually compatible, guaranteeing an injective, edge-consistent mapping across all three datasets.
 
-**Stage 2: Candidate edge triples.** All C(5,3) \= 10 triplet combinations of the five datasets are evaluated. For each triplet, find signatures shared across all three graphs. Within each shared signature bucket, take the top 4 edges per graph ranked by combined endpoint degree. Prioritizing high-degree edges targets hub-centered connectivity patterns, where a single highly-connected node anchors edges to many neighbors across multiple cell types. This is the structural profile most likely to yield a large isomorphic subgraph. Form all combinations, capped at 3000 triples total.
+**Search.** 2-core pruning discards nodes that cannot belong to any clique of size 3 or greater. Bron-Kerbosch with degree ordering then runs on the pruned graph. All C(5,3) = 10 dataset triplets are evaluated, each with a one-hour time budget chosen to allow a full sweep overnight. On the winning triplet, the maximum clique was found within the first minute; a subsequent extended run stalled at the same result after 189 minutes with no improvement, suggesting N=45 is stable under this candidate set.
 
-**Stage 3: Compatibility graph.** Build a graph where nodes are edge triples and two triples are connected if they are mutually compatible: (a) their implied node mappings are injective and consistent across all three graphs, and (b) all 8 cross-directed edges between the 4 involved nodes agree across all three graphs. A clique in this graph corresponds to a valid common induced subgraph because every pair of edge triples in the clique is mutually compatible, guaranteeing that the combined node mapping is injective and all edge relationships are consistent across all three datasets.
+**Verification.** The edge-clique-to-node-triple conversion can introduce violations from reverse edges not visible at the compatibility graph level. An O(N^2) pairwise directed check is run over the extracted node set, and a greedy repair removes the most-violated node triple iteratively until the mapping is clean. The final result passed with 0 violations across all 2,025 directed pairs.
 
-**Stage 4: Maximum clique.** Apply 2-core pruning (any node with fewer than 2 compatible neighbors cannot be in a clique of size \>= 3), then run Bron-Kerbosch on the pruned graph. The compatibility graph is undirected because compatibility between two edge triples is a symmetric relationship: if triple A is consistent with triple B, then B is consistent with A. Directionality of the original connectomes is preserved through the compatibility check itself, which requires all 8 cross-directed edge relationships between the 4 involved nodes to agree across all three datasets before two triples are considered compatible. A 600-second timeout returns the best clique found.
+---
 
-**Stage 5: Verification.** Extract node triples from the winning edge clique and run a full O(N^2) pairwise isomorphism check covering both edge directions for all pairs. This step is necessary because the compatibility graph checks pairs of edge triples, but a clique of size k can have multi-way inconsistencies not caught pairwise, specifically the reverse edges v→u and q→p which are not among the 8 cross-directed edges checked in Stage 3\. A greedy repair removes the node triple with the most violations and repeats until the set is clean. A separate verification script confirms 0 violations across all N\*N directed pairs.
+## Heuristics
 
-**Scoring.** Each triplet is scored as N \* (1 \+ edge\_density) on the largest weakly connected component of the matched node set, requiring N \>= 3 and edges \>= N. This penalises isolated matched pairs that form no coherent circuit and selects the best triplet across all 10 combinations.
+1. **`MAX_EDGES_PER_SIG = 8` (bucket size).** On the winning triplet, k=8 yields a compatibility graph density of 0.214 and a maximum clique of 61 edge triples (45 nodes). Raising to k=12 drops density to 0.125 and the clique to 29; k=9 and k=10 degraded similarly. Lower-ranked candidates dilute the dense core of the compatibility graph rather than extending it, so a tighter bucket consistently outperforms a looser one. Confirmed optimal by testing k in {8, 9, 10, 12}.
+
+2. **`MAX_EDGE_TRIPLES = 10,000` (candidate cap).** At this cap the compatibility graph carries approximately 10.7M edges (around 4 GB RAM). At 50,000 triples a MemoryError was raised. At 15,000, density fell to 0.144 and the best clique shrank to 28, meaning the quality degradation preceded the memory ceiling. The cap is therefore binding on clique quality before it is binding on hardware.
+
+3. **`KCORE_K = 2` (pruning threshold).** After pruning, 9,620 of 10,000 nodes survived on the winning triplet. The compatibility graph is genuinely dense throughout and pruning removes very little, so the threshold imposes no meaningful quality trade-off while reducing clique search time.
+
+---
 
 ## Assumptions
 
-- Self-loops removed (a neuron synapsing onto itself is not meaningful cross-dataset structural information)  
-- Edge weights ignored as specified  
-- Edge direction preserved throughout  
-- Only the largest weakly connected component of the matched node set is reported
+1. Structural similarity is captured by coarse log2-binned degree profiles. Two non-isomorphic neighbourhoods can share a 4-tuple signature (false positives), and the reverse is also possible given the density gap (false negatives). False positives are eliminated downstream by the compatibility check and O(N^2) verification. False negatives would result in a smaller recovered subgraph. The result is a **certified lower bound**, not a proven global optimum. Re-runs across the full hyperparameter grid tested did not exceed N=45 on any triplet.
 
-## Hyperparameters
+2. Hub-degree ordering in candidate selection assumes the largest common subgraph is anchored on high-degree nodes. This held empirically: the recovered circuit is centred on CT1, the highest-degree node in the FAFB subgraph. It is a heuristic, not a guarantee.
 
-| Parameter | Value | Reasoning |
-| :---- | :---- | :---- |
-| MAX\_EDGES\_PER\_SIG | 4 | Keeps compatibility graph construction tractable (O(n^2) at n\<=3000) |
-| MAX\_EDGE\_TRIPLES | 3000 | Hard cap; degree-sorted so best candidates are retained |
-| KCORE\_K | 2 | Removes nodes that cannot belong to any clique of size \>= 3 |
-| TIMEOUT\_S | 600 | Sufficient for Bron-Kerbosch to exhaust the pruned search space |
+3. No biological metadata was used at any stage. The algorithm operates purely on graph structure; node IDs are treated as opaque integers throughout.
 
-## Reproducing the result
+---
 
-**Dependencies**
+## Files
 
-python \>= 3.9
+```
+.
+├── pipeline.py          full search across all 10 dataset triplets
+├── network.csv          45 matched neuron IDs (columns: BANC, FAFB, MCNS)
+├── science.md           biological investigation of the circuit in FAFB
+├── network_graph.png    circuit as a directed network graph (FlyWire Codex)
+└── mesh_3d.png          3D skeleton rendering of all 45 neurons (Neuroglancer)
+```
 
-networkx
+---
 
-pandas
+## Reproducing
 
-collections, math, itertools, os, threading, time (standard library)
-
-**File structure**
-
-Place the five edge list CSVs in the same directory as `pipeline.py`:
-
-banc\_626\_edge\_list.csv
-
-fafb\_783\_edge\_list.csv
-
-manc\_1.2.1\_edge\_list.csv
-
-maol\_1.1\_edge\_list.csv
-
-mcns\_0.9\_edge\_list.csv
-
-**Run**
-
+```bash
+pip install networkx pandas
 python pipeline.py
+```
 
-Output: `network.csv` with 3 columns (dataset names) and N rows (matched neuron IDs).
+The five edge-list CSVs must be present in the same directory as `pipeline.py`, named exactly:
 
-To verify the result:
+```
+banc_626_edge_list.csv
+fafb_783_edge_list.csv
+manc_1.2.1_edge_list.csv
+maol_1.1_edge_list.csv
+mcns_0.9_edge_list.csv
+```
 
-python verify.py
-
-Expected output: `VERIFIED: all 1024 directed pairs isomorphic`
-
-## Results across all 10 triplets
-
-| Triplet | Matched neurons | Induced edges | Score |
-| :---- | :---- | :---- | :---- |
-| BANC x FAFB x MCNS | 32 | 55 | 36.88 |
-| FAFB x MANC x MCNS | 37 | 42 | 36.21 |
-| FAFB x MAOL x MCNS | 38 | 57 | 29.63 |
-| FAFB x MANC x MAOL | 24 | 29 | 23.33 |
-| BANC x MAOL x MCNS | 20 | 30 | 17.80 |
-| BANC x FAFB x MAOL | 20 | 23 | 15.77 |
-| MANC x MAOL x MCNS | 16 | 17 | 15.23 |
-| BANC x MANC x MCNS | 10 | 9 | 10.12 |
-| BANC x MANC x MAOL | 10 | 11 | 9.29 |
-| BANC x FAFB x MANC | 12 | 10 | 0.00 |
-
-BANC x FAFB x MCNS was selected as the best result by the scoring function.
-
-## Final result
-
-Best triplet: **BANC x FAFB x MCNS** 
-
-Matched neurons: **32** 
-
-Induced directed edges: **55** 
-
-Isomorphism violations: **0**  
+Runtime is approximately 10 hours on a machine with 20 GB available RAM (one-hour search budget per triplet across all 10 combinations). The best result is written to `network.csv` on completion.
