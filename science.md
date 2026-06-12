@@ -1,6 +1,6 @@
 # The Elementary Motion Detector in the Female *Drosophila* Optic Lobe: Circuit Structure and Biological Significance from the FAFB
 
-**Ibtisam Haseeb** &nbsp;·&nbsp; ibtisam.haseeb@tamu.edu &nbsp;·&nbsp; [github.com/1-IHR/flywire](https://github.com/1-IHR/flywire)
+**Ibtisam Haseeb** &nbsp;·&nbsp; ibtisam.haseeb@tamu.edu &nbsp;·&nbsp; 
 
 ---
 
