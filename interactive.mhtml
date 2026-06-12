@@ -1,0 +1,162 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/ibtis/Downloads/interactive.html
+Subject: =?utf-8?Q?EMD=20Circuit=20=E2=80=94=203D=20Neural=20Visualization=20|=20F?=
+ =?utf-8?Q?AFB=20FlyWire?=
+Date: Fri, 12 Jun 2026 22:36:44 +0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--p2iH2nXuQeS0j08UAtvsw1fhBwhEKRAtyGm5CeuT1y----"
+
+
+------MultipartBoundary--p2iH2nXuQeS0j08UAtvsw1fhBwhEKRAtyGm5CeuT1y----
+Content-Type: text/html
+Content-ID: <frame-2740926E9A96C635CB07EA006F777DCF@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/ibtis/Downloads/interactive.html
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-68d5e526-1d63-434f-9972-2c7e53f22a0f@mhtml.blink" />
+
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<title>EMD Circuit =E2=80=94 3D Neural Visualization | FAFB FlyWire</title>
+
+</head>
+<body>
+<canvas id=3D"c" width=3D"1920" height=3D"946" style=3D"width: 1280px; heig=
+ht: 631px;"></canvas>
+<div id=3D"load" style=3D"opacity: 0; display: none;"><div class=3D"spinner=
+"></div><p>Initialising neural circuit...</p></div>
+<div id=3D"title">
+  <h1>Elementary Motion Detector<br><em>Drosophila</em> Optic Lobe =E2=80=
+=94 FAFB</h1>
+  <p>45 neurons =C2=B7 FlyWire Codex</p>
+</div>
+<div id=3D"stats">
+  <h3>Circuit</h3>
+  <div class=3D"sr"><span>Neurons</span><span class=3D"sv">45</span></div>
+  <div class=3D"sr"><span>Edges (MCIS)</span><span class=3D"sv">84</span></=
+div>
+  <div class=3D"sr"><span>Left hemisphere</span><span class=3D"sv">3</span>=
+</div>
+  <div class=3D"sr"><span>Right hemisphere</span><span class=3D"sv">42</spa=
+n></div>
+  <div class=3D"sr"><span>Dataset</span><span class=3D"sv">FAFB v783</span>=
+</div>
+</div>
+<div id=3D"legend">
+  <h3>Neurotransmitter</h3>
+  <div class=3D"li"><div class=3D"ld" style=3D"background:#4a9ff5"></div>Ac=
+etylcholine (ACH)</div>
+  <div class=3D"li"><div class=3D"ld" style=3D"background:#f5a623;box-shado=
+w:0 0 7px #f5a623aa"></div>GABA =C2=B7 CT1 hub</div>
+  <div class=3D"li"><div class=3D"ld" style=3D"background:#52c41a"></div>Gl=
+utamate (GLUT) =C2=B7 T4d</div>
+  <div class=3D"li"><div class=3D"ld" style=3D"background:#b37feb"></div>Oc=
+topamine (OCT)</div>
+  <div class=3D"li"><div class=3D"ld" style=3D"background:#ff6b6b"></div>Do=
+pamine (DA) =C2=B7 DNc02</div>
+  <div class=3D"li" style=3D"margin-top:6px;border-top:1px solid rgba(80,12=
+0,200,.15);padding-top:6px;font-size:9px;color:rgba(120,150,200,.5)">Arrows=
+ show signal direction</div>
+</div>
+<div id=3D"hl"></div>
+
+
+
+
+
+</body></html>
+------MultipartBoundary--p2iH2nXuQeS0j08UAtvsw1fhBwhEKRAtyGm5CeuT1y----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-68d5e526-1d63-434f-9972-2c7e53f22a0f@mhtml.blink
+
+@charset "utf-8";
+
+*, ::before, ::after { margin: 0px; padding: 0px; box-sizing: border-box; }
+
+body { background: rgb(3, 8, 16); overflow: hidden; font-family: Inter, "Se=
+goe UI", system-ui, sans-serif; user-select: none; }
+
+#c { display: block; cursor: grab; }
+
+#c.drag { cursor: grabbing; }
+
+#title { position: fixed; top: 18px; left: 20px; pointer-events: none; z-in=
+dex: 10; }
+
+#title h1 { font-size: 15px; font-weight: 700; color: rgba(255, 255, 255, 0=
+.92); line-height: 1.25; letter-spacing: -0.15px; text-shadow: rgba(80, 140=
+, 255, 0.5) 0px 0px 30px; }
+
+#title h1 em { font-style: italic; color: rgb(168, 200, 255); }
+
+#title p { font-size: 10px; color: rgba(140, 170, 220, 0.6); margin-top: 4p=
+x; }
+
+#stats { position: fixed; top: 18px; right: 20px; background: rgba(4, 12, 3=
+0, 0.88); border: 1px solid rgba(70, 120, 220, 0.22); border-radius: 8px; p=
+adding: 11px 14px; min-width: 155px; backdrop-filter: blur(12px); }
+
+#stats h3 { font-size: 7.5px; font-weight: 700; letter-spacing: 1.3px; text=
+-transform: uppercase; color: rgba(100, 160, 255, 0.55); margin-bottom: 8px=
+; }
+
+.sr { display: flex; justify-content: space-between; padding: 1.5px 0px; fo=
+nt-size: 10.5px; color: rgba(200, 215, 240, 0.7); }
+
+.sv { color: rgb(106, 180, 255); font-weight: 600; }
+
+#legend { position: fixed; bottom: 20px; left: 20px; background: rgba(4, 12=
+, 30, 0.88); border: 1px solid rgba(70, 120, 220, 0.22); border-radius: 8px=
+; padding: 10px 13px; backdrop-filter: blur(12px); }
+
+#legend h3 { font-size: 7.5px; font-weight: 700; letter-spacing: 1.3px; tex=
+t-transform: uppercase; color: rgba(100, 160, 255, 0.55); margin-bottom: 7p=
+x; }
+
+.li { display: flex; align-items: center; gap: 8px; padding: 2px 0px; font-=
+size: 10.5px; color: rgba(200, 215, 240, 0.75); }
+
+.ld { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+#hl { position: fixed; display: none; background: rgba(4, 12, 36, 0.95); bo=
+rder: 1px solid rgba(100, 160, 255, 0.35); border-radius: 7px; padding: 8px=
+ 12px; pointer-events: none; z-index: 100; backdrop-filter: blur(10px); }
+
+.hn { font-size: 13px; font-weight: 700; color: rgba(255, 255, 255, 0.95); =
+margin-bottom: 3px; }
+
+.hb { font-size: 10px; color: rgba(170, 195, 235, 0.65); line-height: 1.5; =
+}
+
+.hnt { display: inline-block; font-size: 9px; font-weight: 700; padding: 1p=
+x 6px; border-radius: 3px; margin-left: 5px; vertical-align: middle; }
+
+#ctrl { position: fixed; bottom: 20px; right: 20px; text-align: right; font=
+-size: 10px; color: rgba(130, 155, 200, 0.45); line-height: 1.9; pointer-ev=
+ents: none; }
+
+#load { position: fixed; inset: 0px; background: rgb(3, 8, 16); display: fl=
+ex; align-items: center; justify-content: center; flex-direction: column; g=
+ap: 14px; z-index: 999; transition: opacity 0.6s; }
+
+#load p { font-size: 13px; color: rgba(100, 160, 255, 0.75); letter-spacing=
+: 0.5px; }
+
+.spinner { width: 36px; height: 36px; border-width: 2px; border-style: soli=
+d; border-color: rgba(100, 160, 255, 0.7) rgba(80, 130, 255, 0.15) rgba(80,=
+ 130, 255, 0.15); border-image: initial; border-radius: 50%; animation: 0.8=
+s linear 0s infinite normal none running spin; }
+
+@keyframes spin {=20
+  100% { transform: rotate(360deg); }
+}
+
+.clabel { position: fixed; pointer-events: none; font-size: 9px; font-weigh=
+t: 700; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(150, =
+180, 230, 0.45); text-align: center; }
+------MultipartBoundary--p2iH2nXuQeS0j08UAtvsw1fhBwhEKRAtyGm5CeuT1y------
