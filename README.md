@@ -59,13 +59,16 @@ Edges sharing a signature across all three graphs in a triplet seed the candidat
 
 ---
 
-## Files
+## Files in Repository
 
 ```
-.
-├── pipeline.py          code, full search across all 10 dataset triplets
+├── README.md            technical strategy
+├── flywire.py           source code, full search across all 10 dataset triplets
+├── verify.py            isomomorphism check; independent of source code
 ├── network.csv          45 matched neuron IDs (columns: BANC, FAFB, MCNS)
-├── science.md           biological investigation of the circuit in FAFB
+├── science.md           scientific poster; biological investigation of the circuit in FAFB (sc
+├── circuit.csv          taxonomy of FAFB circuit
+
 ```
 
 ---
@@ -74,10 +77,10 @@ Edges sharing a signature across all three graphs in a triplet seed the candidat
 
 ```bash
 pip install networkx==3.6.1 pandas==3.0.3
-python pipeline.py
+python flywire.py
 ```
 
-The five edge-list CSVs must be present in the same directory as `pipeline.py`, named exactly:
+The five edge-list CSVs must be present in the same directory as `flywire.py`, named exactly:
 
 ```
 banc_626_edge_list.csv
