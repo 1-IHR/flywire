@@ -4,7 +4,7 @@
 
 ```
 ├── 3d.png               3D rendering of 45 neurons; FAFB; Brain regions shown
-├── interactive.html     interactive visualization of circuit, please download to view
+├── interactive.html     interactive visualization of circuit, please download to view output
 ├── README.md            technical strategy and algorithm used
 ├── flywire.py           source code, full search across all 10 dataset triplets
 ├── network.csv          45 matched neuron IDs (columns: BANC, FAFB, MCNS)
