@@ -1,0 +1,46 @@
+root_id,label,name,nt_type,flow,super_class,class,sub_class,cell_type,hemilineage,nerve,connectivity_tag,side,input_synapses,output_synapses
+720575940626979621,['CT1'],LO.1,GABA,intrinsic,optic,optic_lobe_intrinsic,lobula_medulla_amacrine,['CT1'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'; 'highly_reciprocal_neuron'; 'nsrn'],left,74505,110708
+720575940609160457,['T5a; FBbt_00003737'],LO.LOP.4964,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5a'],,,['reciprocal'; 'feedforward_loop_participant'],right,56,52
+720575940618203707,['SIFa neuron'; 'SIFa; putative SIFamide'; 'DNc'],FB.LO.2,DA,efferent,descending,,,['DNc02'; 'SIFa'],putative_primary,CV,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],left,332,1213
+720575940621631690,['T5c; FBbt_00003739'],LO.LOP.1564,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5c'],,,['reciprocal'; 'feedforward_loop_participant'],right,73,241
+720575940613120741,['Mi1; Medullary intrinsic neuron 1; FBbt_00003776'],ME.1674,ACH,intrinsic,optic,optic_lobe_intrinsic,medulla_intrinsic,['Mi1'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,430,1572
+720575940631894753,['Mi1; Medullary intrinsic neuron 1; FBbt_00003776'],ME.1611,ACH,intrinsic,optic,optic_lobe_intrinsic,medulla_intrinsic,['Mi1'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,469,1585
+720575940631966149,['pMP7'],IPS.LO.3,ACH,intrinsic,visual_centrifugal,,,['cMLLP02'; 'PS136'],DM1_posterior,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'],left,576,1981
+720575940612843250,['Tm2: Transmedullary neuron 2; FBbt_00003790'],ME.LO.1797,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm2'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,292,554
+720575940606996354,['Tm9; Transmedullary neuron 9; FBbt_00003797'],ME.LO.13598,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm9'],,,['reciprocal'; 'feedforward_loop_participant'],right,81,109
+720575940629894160,['Tm1; Transmedullary neuron 1; FBbt_00003789'],ME.2824,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm1'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,525,1057
+720575940616755985,['T5c; FBbt_00003739'],LO.LOP.1340,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5c'],,,['reciprocal'; 'feedforward_loop_participant'],right,68,246
+720575940620065694,['OA-AL2i2; Busch et al.; 2009'],ME.39081,OCT,intrinsic,visual_centrifugal,,,['OA-AL2i2'; 'hb1535212969'],putative_primary,,['rich_club'; 'broadcaster'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,781,5215
+720575940631716399,['Transmedullary 1; Tm1'; 'Transmedullary 2; Tm2'; 'Tm2: Transmedullary neuron 2; FBbt_00003790'],ME.1013,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm1'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,712,1654
+720575940614269351,['T4d; FBbt_00003735'],ME.LOP.5213,GLUT,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4d'],,,['reciprocal'; 'feedforward_loop_participant'],right,67,59
+720575940613113511,['T4d; FBbt_00003735'],ME.LOP.6313,GLUT,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4d'],,,['reciprocal'; 'feedforward_loop_participant'],right,79,52
+720575940642126221,['T4b; FBbt_00003733'],ME.LOP.6275,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4b'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,75,64
+720575940614580689,['T4a; FBbt_00003732'],ME.LOP.277,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4a'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,247,287
+720575940613712109,['T4c; FBbt_00003734'],ME.LOP.425,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4c'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,193,262
+720575940621066177,['T5c; FBbt_00003739'],LO.LOP.119,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5c'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,152,306
+720575940624226633,['T5c; FBbt_00003739'],LO.LOP.149,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5c'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'],right,157,267
+720575940620311791,['T5a; FBbt_00003737'],LO.LOP.62,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5a'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'],right,164,268
+720575940622057989,['T4c; FBbt_00003734'],ME.LOP.275,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4c'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,221,185
+720575940608618197,['T4a; FBbt_00003732'],ME.LOP.305,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4a'],,,['rich_club'; 'reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,294,263
+720575940630658041,['T4b; FBbt_00003733'],ME.LOP.6039,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4b'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,122,43
+720575940613570326,['T5d; FBbt_00003740'],LO.LOP.4112,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5d'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,120,52
+720575940625114109,['T4a; FBbt_00003732'],ME.LOP.4170,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4a'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,101,42
+720575940616024866,['T5a; FBbt_00003737'],LO.LOP.1346,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5a'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,170,145
+720575940614510899,['T5c; FBbt_00003739'],LO.LOP.3810,,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5c'],,,['reciprocal'; 'feedforward_loop_participant'],right,50,114
+720575940624565006,['T4b; FBbt_00003733'],ME.LOP.3137,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4b'],,,['reciprocal'; 'feedforward_loop_participant'],right,92,184
+720575940605453001,['T4b; FBbt_00003733'],ME.LOP.2718,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4b'],,,['reciprocal'; 'feedforward_loop_participant'],right,73,180
+720575940616748817,['T5b; FBbt_00003738'],LO.LOP.4072,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5b'],,,['reciprocal'; 'feedforward_loop_participant'],right,104,183
+720575940624226795,['Tm9; Transmedullary neuron 9; FBbt_00003797'; 'Transmedullary; Tm'],ME.LO.9840,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm9'],,,['reciprocal'; 'feedforward_loop_participant'],right,82,158
+720575940623725803,['T5b; FBbt_00003738'],LO.LOP.3430,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5b'],,,['reciprocal'; 'feedforward_loop_participant'],right,76,157
+720575940612971634,['T4c; FBbt_00003734'; 'T4'],ME.LOP.4573,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4c'],,,['reciprocal'; 'feedforward_loop_participant'],right,64,113
+720575940633810367,['Tm9; Transmedullary neuron 9; FBbt_00003797'],LO.4895,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm9'],,,['reciprocal'; 'feedforward_loop_participant'],right,48,77
+720575940615018146,['Tm9; Transmedullary neuron 9; FBbt_00003797'],ME.LO.15255,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm9'],,,['reciprocal'; 'feedforward_loop_participant'],right,44,74
+720575940621360349,['transmedullary neuron Tm9; Cholinergic; FBbt_00003797'],ME.LO.14981,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm9'],,,['reciprocal'],right,57,96
+720575940612198835,['Tm9; Transmedullary neuron 9; FBbt_00003797'],ME.LO.15063,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm9'],,,['reciprocal'],right,29,87
+720575940637894110,['Tm9; Transmedullary neuron 9; FBbt_00003797'],ME.LO.16801,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm9'],,,['reciprocal'; 'feedforward_loop_participant'],right,46,75
+720575940625756208,['Tm9; Transmedullary neuron 9; FBbt_00003797'],ME.LO.14925,ACH,intrinsic,optic,optic_lobe_intrinsic,transmedullary,['Tm9'],,,['reciprocal'; 'feedforward_loop_participant'],right,41,74
+720575940621398399,['T4b; FBbt_00003733'],ME.LOP.2611,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4b'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,161,181
+720575940609740381,['T4a; FBbt_00003732'],ME.LOP.2447,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4a'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,177,157
+720575940609942136,['T4a; FBbt_00003732'],ME.LOP.2445,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4a'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,141,144
+720575940621261744,['T5a; FBbt_00003737'],LO.LOP.1289,ACH,intrinsic,optic,optic_lobe_intrinsic,t5_neuron,['T5a'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,118,143
+720575940613565849,['T4a; FBbt_00003732'],ME.LOP.2802,ACH,intrinsic,optic,optic_lobe_intrinsic,t4_neuron,['T4a'],,,['reciprocal'; 'feedforward_loop_participant'; '3_cycle_participant'],right,127,141
