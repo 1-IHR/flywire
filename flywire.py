@@ -21,7 +21,7 @@ MAX_EDGE_TRIPLES  = 10000  # compatible with device memory
 KCORE_K           = 2      # min compatible neighbours to survive pruning
 STALL_MINUTES     = 60    # stop if no improvement for 1 hour
 
-FOCUS_TRIPLET = None 
+FOCUS_TRIPLET = None    #Searches all C(5,3)=10 combinations
 
 
 def load_graph(path):
