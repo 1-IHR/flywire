@@ -1,6 +1,7 @@
 import pandas as pd
 import networkx as nx
 
+# verifying the highest matched neuron file triple found
 FILES = {
     "BANC": "banc_626_edge_list.csv",
     "FAFB": "fafb_783_edge_list.csv",
