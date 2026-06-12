@@ -11,6 +11,6 @@
 ├── network.png          Network graph of connections betweeen neurons; labelled
 ├── poster.pdf           Scientific poster; with visualizations and biological relevance
 ├── verify.py            code for isomomorphism check; independent of source code
-├── science.md           scientific poster; biological investigation of the circuit in FAFB 
+├── science.md           research note; biological investigation of the circuit in FAFB 
 
 ```
