@@ -20,7 +20,7 @@ The five graphs span a 10x density range (FAFB ~27 edges per node, MANC ~224). N
 
 ## Approach
 
-MCIS is NP-hard, so rather than searching exhaustively, the problem is reduced to maximum clique on a bounded compatibility graph, then verified exactly.
+This problem is NP-hard, so rather than searching exhaustively, the problem is reduced to maximum clique on a bounded compatibility graph, then verified exactly.
 
 **Edge signatures.** The density gap rules out node signatures. Constraining both endpoints of a directed edge jointly, via a log2-binned 4-tuple of in/out degrees, yields signatures substantially more selective than single-node fingerprints, since both source and target degree profiles must match simultaneously:
 
