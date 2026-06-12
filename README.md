@@ -66,7 +66,7 @@ Edges sharing a signature across all three graphs in a triplet seed the candidat
 ├── flywire.py           source code, full search across all 10 dataset triplets
 ├── verify.py            isomomorphism check; independent of source code
 ├── network.csv          45 matched neuron IDs (columns: BANC, FAFB, MCNS)
-├── science.md           scientific poster; biological investigation of the circuit in FAFB (sc
+├── science.md           scientific poster; biological investigation of the circuit in FAFB 
 ├── circuit.csv          taxonomy of FAFB circuit
 
 ```
