@@ -76,9 +76,9 @@ body{background:#030810;overflow:hidden;font-family:'Inter','Segoe UI',system-ui
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script>
-// ─────────────────────────────────────────
+
 // NEUROTRANSMITTER DEFINITIONS
-// ─────────────────────────────────────────
+
 const NT = {
   ACH:  { hex: 0x4a9ff5, css: '#4a9ff5', bg: 'rgba(74,159,245,.22)',  name: 'ACH'  },
   GABA: { hex: 0xf5a623, css: '#f5a623', bg: 'rgba(245,166,35,.22)',  name: 'GABA' },
@@ -87,10 +87,10 @@ const NT = {
   DA:   { hex: 0xff6b6b, css: '#ff6b6b', bg: 'rgba(255,107,107,.22)', name: 'DA'   },
 };
 
-// ─────────────────────────────────────────
+
 // FIBONACCI SPHERE CLUSTERING
 // Points are evenly distributed on a sphere around a centre
-// ─────────────────────────────────────────
+
 function fibCluster(n, cx, cy, cz, r) {
   const pts = [];
   const phi = Math.PI * (1 + Math.sqrt(5)); // golden angle
@@ -105,9 +105,9 @@ function fibCluster(n, cx, cy, cz, r) {
   return pts;
 }
 
-// ─────────────────────────────────────────
+
 // NEURON DATA — all 45 neurons
-// ─────────────────────────────────────────
+
 const neurons = [];
 let _id = 0;
 
@@ -154,10 +154,9 @@ add('DNc02', 'DNc02', 'DA', [0.6, -3.6, 3.2], { isLeft: true });
 const byType = {};
 neurons.forEach(n => { (byType[n.type] = byType[n.type] || []).push(n); });
 
-// ─────────────────────────────────────────
+
 // EDGE DATA — biologically based
-// Refs: Shinomiya 2019, Takemura 2017, Braun 2023
-// ─────────────────────────────────────────
+
 const edgeList = [];
 
 function connectAll(sType, tType, w) {
@@ -215,9 +214,9 @@ connectFrac('T4c','DNc02',  9, .6);  connectAll ('T4d','DNc02', 10);
 connectFrac('T5a','DNc02', 14, .6);  connectFrac('T5b','DNc02', 12, .7);
 connectFrac('T5c','DNc02', 10, .55); connectAll ('T5d','DNc02', 12);
 
-// ─────────────────────────────────────────
+
 // THREE.JS SETUP
-// ─────────────────────────────────────────
+
 const canvas  = document.getElementById('c');
 const W = window.innerWidth, H = window.innerHeight;
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
